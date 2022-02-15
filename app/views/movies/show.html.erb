@@ -1,0 +1,16 @@
+<h1>View Movie's <%= pluralize(@actors.count, "Actor") %></h1>
+<table>
+	<thead>
+		<th>First Name</th>
+		<th>Last Name</th>
+	</thead>
+	<tbody>
+		<% @actors.each do |actor| %>
+		<tr>
+			<td><%= actor.first_name %></td>
+			<td><%= actor.last_name %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a href="/movies">View Movies</a>
