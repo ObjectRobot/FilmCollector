@@ -55,6 +55,69 @@ class ActorsController < ApplicationController
 		@movies = Actor.find(params[:id]).movies
 	end
 
+	# edit method gets called when the actors/:id/edit URL is requested
+	# edit method is mapped to the actors edit.html.erb
+	def edit
+		# call find method on Actor model class giving it the id sent
+		# in the request 
+		# the find method selects all of the data in the actor table where
+		# the id is equal to the id sent in the request
+		# the selected data will be returned as an object 
+		# the object will be stored in an instance variable will be 
+		# available to the edit.html.erb
+		@actor = Actor.find(params[:id])
+	end
+
+	# update method gets called when the Update button is pushed on the
+	# actors edit.html.erb
+	def update
+		# call find method on Actor model class giving it the id sent in the
+		# request
+		# find method selects all of the data in the actor table where
+		# the id is equal to the id sent in the request
+		# the selected data will be returned as an object
+		# the object will be stored in a variable
+		actor = Actor.find(params[:id])
+		# call update method on Actor object giving the first name and
+		# last name parameters input in the actors edit.html.erb
+		# update method updates the data in the actor table use the parameters
+		if actor.update(actor_params)
+			# if the update method succeeds, request the actors URL which
+			# will render the actors index.html.erb int he browser
+			redirect_to "/actors"
+		else
+			# if the update method fails, get the full messages associated
+			# with the errors
+			# store them in a Rails flash object named errors so that
+			# the full messages may be displayed in the requested URL
+			flash[:errors] = actor.errors.full_messages
+			# request the actors/:id/edit URL which will render the actors
+			# edit.html.erb
+			redirect_to "/actors/#{actor.id}/edit"
+		end
+	end
+
+	# delete method gets called when the actors/:id/delete URL is requested
+	# delete method is mapped to the actors delete.html.erb
+	def delete
+		# call find method on Actor model class giving it the id sent
+		# in the request 
+		# the find method selects all of the data in the actor table where
+		# the id is equal to the id sent in the request
+		# the selected data will be returned as an object 
+		# the object will be stored in an instance variable will be 
+		# available to the delete.html.erb
+		@actor = Actor.find(params[:id])
+	end
+
+	# destory method gets called when the Delete button is pushed on the 
+	# actors delete.html.erb
+	def destroy
+		actor = Actor.find(params[:id])
+		actor.destroy
+		redirect_to "/actors"
+	end
+
 	private
 	def actor_params
 		# params is a Rails object that gets the specified request
