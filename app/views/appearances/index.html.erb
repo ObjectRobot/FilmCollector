@@ -5,7 +5,7 @@
 		<select name="appearance[actor_id]">
 			<option></option>
 			<% @actors.each do |actor| %>
-			<option value="<%= actor.id %>"<%= actor.first_name %> <%= actor.last_name %>></option>
+			<option value="<%= actor.id %>"><%= actor.first_name %> <%= actor.last_name %></option>	
 			<% end %>
 		</select>
 	</div>
@@ -14,7 +14,7 @@
 		<select name="appearance[movie_id]">
 			<option></option>
 			<% @movies.each do |movie| %>
-			<option value="<%= movie.id %>"<%= movie.title %>></option>
+			<option value="<%= movie.id %>"><%= movie.title %></option> 
 			<% end %>
 		</select>
 	</div>
