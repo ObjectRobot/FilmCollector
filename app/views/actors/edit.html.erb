@@ -1,4 +1,7 @@
-<<h1>Edit <%= @actor.first_name %> <%= @actor.last_name %></h1>
+<h1>Edit <%= @actor.first_name %> <%= @actor.last_name %></h1>
+<div>
+	<%= image_tag @actor.image %>
+</div>
 <form action="/actors/ <%= @actor.id %>" method="post">
 	<div>
 		<label>First Name:</label>

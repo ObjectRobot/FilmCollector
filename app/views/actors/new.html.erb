@@ -1,5 +1,5 @@
 <h1>Create Actor</h1>
-<form action="/actors" method="post">
+<form action="/actors" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label>First Name:</label>
 		<input type="text" name="actor[first_name]" class="form-control">
@@ -7,6 +7,10 @@
 	<div class="form-group">
 		<label>Last Name:</label>
 		<input type="text" name="actor[last_name]" class="form-control">
+	</div>
+	<div class="form-group">
+		<label>Image:</label>
+		<input type="file" name="actor[image]" class="form-control">
 	</div>
 	<input type="submit" value= "Create" class="btn btn-primary">
 </form>

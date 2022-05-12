@@ -1,0 +1,10 @@
+<h1>View <%= @rating.title %></h1>
+<table class="table table-striped">
+<form action="/rating/ <%= @rating.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<div>
+		<th scope="col"><label>Rating:</label></th>
+		<td><input name="rating[rating]" disabled ><%= @rating.rating%></td>
+	</div>
+</form>
+</table>

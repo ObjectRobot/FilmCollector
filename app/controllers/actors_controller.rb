@@ -122,6 +122,6 @@ class ActorsController < ApplicationController
 	def actor_params
 		# params is a Rails object that gets the specified request
 		# paramters
-		params.require(:actor).permit(:first_name, :last_name)
+		params.require(:actor).permit(:first_name, :last_name, :image)
 	end
 end
